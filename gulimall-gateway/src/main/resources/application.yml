@@ -1,0 +1,85 @@
+server:
+  port: 88
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"  # 配置监控
+spring:
+  application:
+    name: gulimall-gateway
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+    sentinel:
+      transport:
+        port: 8719
+        dashboard: 192.168.241.130:8333
+    gateway:
+      routes:
+        - id: gulimall-product
+          uri: lb://gulimall-product
+          predicates: # 什么情况下路由给它
+            - Path=/api/product/** # 默认前端项目都带上api前缀，
+          filters:
+            - RewritePath=/api/(?<segment>.*),/$\{segment}  # 由于验证码重写了路由，所以此时网关重写路径
+        - id: gulimall-coupon
+          uri: lb://gulimall-coupon
+          predicates: # 什么情况下路由给它
+            - Path=/api/coupon/** # 默认前端项目都带上api前缀，
+          filters:
+              - RewritePath=/api/(?<segment>.*),/$\{segment}  # 由于验证码重写了路由，所以此时网关重写路径
+        - id: gulimall-third-party
+          uri: lb://gulimall-third-party
+          predicates: # 什么情况下路由给它
+            - Path=/api/thirdparty/** # 默认前端项目都带上api前缀，
+          filters:
+            - RewritePath=/api/thirdparty/(?<segment>.*),/$\{segment}
+        - id: gulimall-member
+          uri: lb://gulimall-member
+          predicates: # 什么情况下路由给它
+            - Path=/api/member/** # 默认前端项目都带上api前缀，
+          filters:
+            - RewritePath=/api/(?<segment>.*),/$\{segment}  # 由于验证码重写了路由，所以此时网关重写路径
+        - id: gulimall-ware
+          uri: lb://gulimall-ware
+          predicates: # 什么情况下路由给它
+            - Path=/api/ware/** # 默认前端项目都带上api前缀，
+          filters:
+            - RewritePath=/api/(?<segment>.*),/$\{segment}  # 由于验证码重写了路由，所以此时网关重写路径
+        - id: renren-fast
+          uri: lb://renren-fast
+          predicates: # 什么情况下路由给它
+            - Path=/api/** # 默认前端项目都带上api前缀，
+          filters:
+            - RewritePath=/api/(?<segment>.*),/renren-fast/$\{segment}
+        - id: host-router # 配置nginx代理过来的请求
+          uri: lb://gulimall-product
+          predicates: # 什么情况下路由给它
+            - Host=gulimalls.com,item.gulimalls.com # 默认前端项目都带上api前缀
+        - id: gulimall-search-router # 配置nginx代理过来的请求
+          uri: lb://gulimall-search
+          predicates: # 什么情况下路由给它
+            - Host=search.gulimalls.com # 默认前端项目都带上api前缀
+        - id: gulimall-auth-router # 配置nginx代理过来的请求
+          uri: lb://gulimall-auth-server
+          predicates: # 什么情况下路由给它
+            - Host=auth.gulimalls.com # 默认前端项目都带上api前缀
+        - id: gulimall-cart-router # 配置nginx代理过来的请求
+          uri: lb://gulimall-cart
+          predicates: # 什么情况下路由给它
+            - Host=cart.gulimalls.com # 默认前端项目都带上api前缀
+        - id: gulimall-order-router # 配置nginx代理过来的请求
+          uri: lb://gulimall-order
+          predicates: # 什么情况下路由给它
+            - Host=order.gulimalls.com # 默认前端项目都带上api前缀
+        - id: gulimall-member-router # 配置nginx代理过来的请求
+          uri: lb://gulimall-member
+          predicates: # 什么情况下路由给它
+            - Host=member.gulimalls.com # 默认前端项目都带上api前缀
+        - id: gulimall-seckill-router # 配置nginx代理过来的请求
+          uri: lb://gulimall-seckill
+          predicates: # 什么情况下路由给它
+            - Host=seckill.gulimalls.com # 默认前端项目都带上api前缀
+

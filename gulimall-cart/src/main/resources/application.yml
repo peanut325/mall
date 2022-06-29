@@ -1,0 +1,37 @@
+server:
+  port: 21000
+spring:
+  application:
+    name: gulimall-cart
+  thymeleaf:
+    cache: false  # \u5173\u95ED\u7F13\u5B58
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+    sentinel:
+      transport:
+        port: 8719
+        dashboard: 192.168.241.130:8333
+  redis:
+    host: 192.168.241.130
+    port: 6379
+  session:
+    store-type: redis # 使用redis保存session
+    timeout: 30m  # 30分钟过期
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"  # 配置监控
+gulimall:
+  thread:
+    coreSize: 20
+    maxSize: 200
+    keepAliveTime: 10
+feign:
+  client:
+    config:
+      default:
+        connect-timeout: 10000
+        read-timeout: 10000

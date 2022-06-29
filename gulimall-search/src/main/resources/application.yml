@@ -1,0 +1,29 @@
+server:
+  port: 12000
+spring:
+  application:
+    name: gulimall-search
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+    sentinel:
+      transport:
+        port: 8719
+        dashboard: 192.168.241.130:8333
+  thymeleaf:
+    cache: false  # 开发时一定注意关闭缓存
+  redis:
+    host: 192.168.241.130
+    port: 6379
+  session:
+    store-type: redis
+elasticSearch:
+  hostname: 119.91.214.57
+  port: 9200
+  scheme: http
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"  # 配置监控

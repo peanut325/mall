@@ -1,0 +1,43 @@
+server:
+  port: 8000
+spring:
+  application:
+    name: gulimall-member
+  datasource:            # 配置数据源
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://119.91.214.57:3306/gulimall-ums?characterEncoding=utf-8&serverTimezone=GMT%2B8&useSSL=false
+    username: root
+    password: 123456
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+    sentinel:
+      transport:
+        port: 8719
+        dashboard: 192.168.241.130:8333
+  thymeleaf:
+    cache: false
+  session:
+    store-type: redis
+  redis:
+    host: 192.168.241.130
+    port: 6379
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"  # 配置监控
+mybatis-plus:
+  mapper-locations: classpath*:/mapper/**/*.xml
+  global-config:
+    db-config:
+      id-type: auto
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+feign:
+  client:
+    config:
+      default:
+        connect-timeout: 10000
+        read-timeout: 10000

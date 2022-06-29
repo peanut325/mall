@@ -1,0 +1,69 @@
+server:
+  port: 10000
+spring:
+  application:
+    name: gulimall-product
+  datasource: # 配置数据源
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://119.91.214.57:3306/gulimall-pms?characterEncoding=utf-8&serverTimezone=GMT%2B8&useSSL=false
+    username: root
+    password: 123456
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+    sentinel:
+      transport:
+        port: 8719
+        dashboard: 192.168.241.130:8333
+  jackson: # 返回前端的格式化时间
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+  thymeleaf:
+    cache: false  # 关闭缓存
+  redis:
+    host: 192.168.241.130
+    port: 6379
+  cache:
+    type: redis # 指定以redis作为缓存
+    redis:
+      time-to-live: 3600000 # ms为单位
+      #      key-prefix: CACHE_  # 缓存加上前缀，区分其他数据
+      use-key-prefix: true # 是否使用前缀,(没有配置即使用分区的名字作为前缀)
+      cache-null-values: true # 为空值是否保存，防止缓存穿透
+  session:
+    store-type: redis
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"  # 配置监控
+mybatis-plus:
+  mapper-locations: classpath*:/mapper/**/*.xml
+  global-config:
+    db-config:
+      id-type: auto # 主键自增
+      logic-delete-value: 0 # 逻辑删除
+      logic-not-delete-value: 1
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+### Ribbon 配置
+#ribbon:
+#  # 连接超时
+#  ConnectTimeout: 5000
+#  # 响应超时
+#  ReadTimeout: 10000
+#feign:
+#  hystrix:
+#    enabled: false
+feign:
+  client:
+    config:
+      default:
+        connect-timeout: 10000
+        read-timeout: 10000
+gulimall:
+  thread:
+    coreSize: 20
+    maxSize: 200
+    keepAliveTime: 10

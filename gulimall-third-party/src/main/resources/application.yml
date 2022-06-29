@@ -1,0 +1,35 @@
+server:
+  port: 30000
+spring:
+  application:
+    name: gulimall-third-party
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+    sentinel:
+      transport:
+        port: 8719
+        dashboard: 192.168.241.130:8333
+    alicloud:
+      access-key: LTAI5tBqUnnkWgw41hyti5MA
+      secret-key: LbTJTWIxN0vW6ZJCoZJOvumhFqYi95
+      oss:
+        endpoint: oss-cn-chengdu.aliyuncs.com
+        bucket: project-guli-education
+tencent:
+  msm:
+    secretID: AKIDCE0WmmW0C7l9G6fy0lFTR9akeHdiX5MM  # keyId
+    secretKey: mHVS7Wu2tUnpa4IFvKSJtCF1XmkSt3wZ     # secreKey
+    endPoint: sms.tencentcloudapi.com
+    appId: 1400638147                               # 短信的应用号
+    signName: contract公众号                         # 签名
+    templateId: 1315734                             # 模板id
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"  # 配置监控
+#logging:
+#  level:
+#    com.yxj.gulimall.product: debug

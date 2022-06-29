@@ -1,0 +1,210 @@
+{
+  "took" : 14,
+  "timed_out" : false,
+  "_shards" : {
+    "total" : 1,
+    "successful" : 1,
+    "skipped" : 0,
+    "failed" : 0
+  },
+  "hits" : {
+    "total" : {
+      "value" : 4,
+      "relation" : "eq"
+    },
+    "max_score" : null,
+    "hits" : [
+      {
+        "_index" : "gulimall_product",
+        "_type" : "_doc",
+        "_id" : "51",
+        "_score" : null,
+        "_source" : {
+          "attrs" : [
+            {
+              "attrId" : 15,
+              "attrName" : "CPU品牌",
+              "attrValue" : "高通(Qualcomm)"
+            },
+            {
+              "attrId" : 16,
+              "attrName" : "CPU型号",
+              "attrValue" : "鸿蒙"
+            }
+          ],
+          "brandId" : 9,
+          "brandImg" : "https://gulimall-hello.oss-cn-beijing.aliyuncs.com/2019-11-18/de2426bd-a689-41d0-865a-d45d1afa7cde_huawei.png",
+          "brandName" : "华为",
+          "catalogId" : 225,
+          "catalogName" : "手机",
+          "hasStock" : true,
+          "hotScore" : 0,
+          "saleCount" : 0,
+          "skuId" : 51,
+          "skuImg" : "https://project-guli-education.oss-cn-chengdu.aliyuncs.com/2022-05-03/842c391d-6a37-441e-8aa4-ce5041b23ecb_23d9fbb256ea5d4a.jpg",
+          "skuPrice" : 6099.0,
+          "skuTitle" : "华为mate40pro 5G手机 夏日胡杨 8+128G全网通（4G版）  黑色 8+256GB 4G",
+          "spuId" : 29
+        },
+        "highlight" : {
+          "skuTitle" : [
+            "<b style='color:red'>华为</b>mate40pro 5G手机 夏日胡杨 8+128G全网通（4G版）  黑色 8+256GB 4G"
+          ]
+        },
+        "sort" : [
+          0
+        ]
+      },
+      {
+        "_index" : "gulimall_product",
+        "_type" : "_doc",
+        "_id" : "52",
+        "_score" : null,
+        "_source" : {
+          "attrs" : [
+            {
+              "attrId" : 15,
+              "attrName" : "CPU品牌",
+              "attrValue" : "高通(Qualcomm)"
+            },
+            {
+              "attrId" : 16,
+              "attrName" : "CPU型号",
+              "attrValue" : "鸿蒙"
+            }
+          ],
+          "brandId" : 9,
+          "brandImg" : "https://gulimall-hello.oss-cn-beijing.aliyuncs.com/2019-11-18/de2426bd-a689-41d0-865a-d45d1afa7cde_huawei.png",
+          "brandName" : "华为",
+          "catalogId" : 225,
+          "catalogName" : "手机",
+          "hasStock" : true,
+          "hotScore" : 0,
+          "saleCount" : 0,
+          "skuId" : 52,
+          "skuImg" : "https://project-guli-education.oss-cn-chengdu.aliyuncs.com/2022-05-03/842c391d-6a37-441e-8aa4-ce5041b23ecb_23d9fbb256ea5d4a.jpg",
+          "skuPrice" : 6099.0,
+          "skuTitle" : "华为mate40pro 5G手机 夏日胡杨 8+128G全网通（4G版）  黑色 8+256GB 5G",
+          "spuId" : 29
+        },
+        "highlight" : {
+          "skuTitle" : [
+            "<b style='color:red'>华为</b>mate40pro 5G手机 夏日胡杨 8+128G全网通（4G版）  黑色 8+256GB 5G"
+          ]
+        },
+        "sort" : [
+          0
+        ]
+      }
+    ]
+  },
+  "aggregations" : {
+    "catalog_agg" : {
+      "doc_count_error_upper_bound" : 0,
+      "sum_other_doc_count" : 0,
+      "buckets" : [
+        {
+          "key" : 225,
+          "doc_count" : 4,
+          "catalog_name_agg" : {
+            "doc_count_error_upper_bound" : 0,
+            "sum_other_doc_count" : 0,
+            "buckets" : [
+              {
+                "key" : "手机",
+                "doc_count" : 4
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "attr_agg" : {
+      "doc_count" : 8,
+      "attr_id_agg" : {
+        "doc_count_error_upper_bound" : 0,
+        "sum_other_doc_count" : 0,
+        "buckets" : [
+          {
+            "key" : 15,
+            "doc_count" : 4,
+            "attr_name_agg" : {
+              "doc_count_error_upper_bound" : 0,
+              "sum_other_doc_count" : 0,
+              "buckets" : [
+                {
+                  "key" : "CPU品牌",
+                  "doc_count" : 4
+                }
+              ]
+            },
+            "attr_value_agg" : {
+              "doc_count_error_upper_bound" : 0,
+              "sum_other_doc_count" : 0,
+              "buckets" : [
+                {
+                  "key" : "高通(Qualcomm)",
+                  "doc_count" : 4
+                }
+              ]
+            }
+          },
+          {
+            "key" : 16,
+            "doc_count" : 4,
+            "attr_name_agg" : {
+              "doc_count_error_upper_bound" : 0,
+              "sum_other_doc_count" : 0,
+              "buckets" : [
+                {
+                  "key" : "CPU型号",
+                  "doc_count" : 4
+                }
+              ]
+            },
+            "attr_value_agg" : {
+              "doc_count_error_upper_bound" : 0,
+              "sum_other_doc_count" : 0,
+              "buckets" : [
+                {
+                  "key" : "鸿蒙",
+                  "doc_count" : 4
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    "brand_agg" : {
+      "doc_count_error_upper_bound" : 0,
+      "sum_other_doc_count" : 0,
+      "buckets" : [
+        {
+          "key" : 9,
+          "doc_count" : 4,
+          "brand_img_agg" : {
+            "doc_count_error_upper_bound" : 0,
+            "sum_other_doc_count" : 0,
+            "buckets" : [
+              {
+                "key" : "https://gulimall-hello.oss-cn-beijing.aliyuncs.com/2019-11-18/de2426bd-a689-41d0-865a-d45d1afa7cde_huawei.png",
+                "doc_count" : 4
+              }
+            ]
+          },
+          "brand_name_agg" : {
+            "doc_count_error_upper_bound" : 0,
+            "sum_other_doc_count" : 0,
+            "buckets" : [
+              {
+                "key" : "华为",
+                "doc_count" : 4
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}
