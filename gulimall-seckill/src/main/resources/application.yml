@@ -17,7 +17,7 @@ spring:
   session:
     store-type: redis
   rabbitmq:
-    host: 119.91.214.57 # host地址
+    host: 192.168.241.130 # host地址
     port: 5672  # 端口
     virtual-host: / # 虚拟主机，默认
   thymeleaf:
