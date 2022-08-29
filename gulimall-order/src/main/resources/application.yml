@@ -7,11 +7,11 @@ spring:
     cache: false
   datasource: # 配置数据源
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://119.91.214.57:3306/gulimall-oms?characterEncoding=utf-8&serverTimezone=GMT%2B8&useSSL=false
+    url: jdbc:mysql://localhost:3306/gulimall-oms?characterEncoding=utf-8&serverTimezone=GMT%2B8&useSSL=false
     username: root
     password: 123456
   rabbitmq:
-    host: 119.91.214.57 # host地址
+    host: 192.168.241.130 # host地址
     port: 5672  # 端口
     virtual-host: / # 虚拟主机，默认
     publisher-confirms: true  # 开启发送端的确认，抵达broker的确认
@@ -49,9 +49,9 @@ feign:
         connect-timeout: 10000
         read-timeout: 10000
 alipay:
-  appId: 2021000119607739
-  merchantPrivateKey: MIIEvwIBADANBgkqhkiG9w0BAQEFAASCBKkwggSlAgEAAoIBAQDJw5eucFjxXjLmstwcn8vckje0NTgk6kyYwKSmNhE5Qrg/M7hYp6v6Q99DXpv5At0ic6JnRBtmtAwGphRQoNFAx8Lu43mGgT8+kzKbiGhjTeat+tD7d5EKpNOgiZMFdiJVqEHcInBRtpOYfJPN8X9+AxPYoijjTVRJx/ylNmXjUV4ucX4b9pQcw8B8YGBOHosBiFVD5R1hvcHWUPq3i4ZDPIc4qbzKbQrLL/ndtoVPbRmqvINCskzF365CNswAJ40wYSzIY7QV+m0orCCWyKqef6SJCIcs32ahWzxWGTrE4Ol1EFMrX4aR/QF0a4kf4Ul5cpcIBGGxAT+JGyzwI3wfAgMBAAECggEBAMOphXgqBWcVBeHJxEGSCb3+ojyFe8v4140vDL0PI8bW2ByaiISZHeNWXLZVkoZ6a37UisMAPl5r7lmoR30lZ6gd0QGf4aM5xd5mGybPswPScQl5eZ7UBfk/fOdrYwNh28wbnrrfPvNPTnULIr8OGqhWTbHBGEvOGxZt9ak2RrqY3ZNbbnZ+B2xjNr4cb8/QJozks3PKXnMAnZC1h75gZ85blXuAnfa+BphdXNoNnVdX7ngNpGq+VDAe5ATHsRxWT2i1jvFAiZBiCTFDvbrs0aClCJZvrpGdr6m61KlyRxkmVbtb74kmliNn1NADQatb/dO9sTHpKsMRzWiy6uFtETkCgYEA7wdBkPakQeXrLlrY14v55KCm7Ubisd+0psKBRlcgz6rN/Tk+PGRTM5E0ivLXYYD3lzffXfFCtNhE5N4qQlYifWUuP5BAh4ONpXzCXl61EmAzikeZXfDEuwaCaSUH0TE7vTeZZ2gWnZ6c3O7lEaJPRa6v8ENWfFElNKb4L7uSnjUCgYEA2Bb+ncAC3GnaphSUI15PJNh5nHJ1dHDJkdmVA8PW7MkBA5+BLrSTGj8292J6N3BskXHsxL21s4KXnbdp7XMpIB6CpXYKupd+Z3o8aMxzM4VqyXfOpRxlCc5jKlD8du6QSscUJo4mn1W5N5Y2iECqC48htWlkHs4JDK6NfcUXS4MCgYEA4TosHOVap0F3VomB07Dwue5q/B+UElkhhxS17UrB/wwJ5zZeH1fFUkzbfqYOLrDwG4wpLALegTtbx3BTz4gMHa4OYxSQyWA7QxkIqRWCdxsw1XZb3Dm3licvENY0xHgou0W9hcN9s+22DzQHopMXMSjGXZWF08Q+U5uVNpz/LZUCgYAyIzO0mmaPiagHvOKaSjmGzQt6dzw1Zi3+v0NJ+liV3BV2J74rfg5bmqtAPwModdda79oF1BairfxLxdC4HW4/W5TomzjmDlxv2fbGQhnArIYYdMnnmW0AF3j+yoepeLTWBNbyEy127sbo1NuWRZquz+j8VJW8aAXFgYKm2eILzQKBgQDRU1ek8AaYw+URJe0hCq2+Jzmh/EjJeLheRwexlQBGyhs9P5m3U41MC7Amf5E6jSDeH6hSAg/3mVyUP+9Bq7ZIAA8nXci2M6AKm88VLvbw5gGYbBiAaTsoEfrEqUKGE7eUA7zP2ocyGkFg4nkOVoYQ3n2SJulTA1g7Ewa2Qc5nHw== # 商户私钥
-  alipayPublicKey: MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAycOXrnBY8V4y5rLcHJ/L3JI3tDU4JOpMmMCkpjYROUK4PzO4WKer+kPfQ16b+QLdInOiZ0QbZrQMBqYUUKDRQMfC7uN5hoE/PpMym4hoY03mrfrQ+3eRCqTToImTBXYiVahB3CJwUbaTmHyTzfF/fgMT2KIo401UScf8pTZl41FeLnF+G/aUHMPAfGBgTh6LAYhVQ+UdYb3B1lD6t4uGQzyHOKm8ym0Kyy/53baFT20ZqryDQrJMxd+uQjbMACeNMGEsyGO0FfptKKwglsiqnn+kiQiHLN9moVs8Vhk6xODpdRBTK1+Gkf0BdGuJH+FJeXKXCARhsQE/iRss8CN8HwIDAQAB # 支付宝公钥
+  appId: # appId
+  merchantPrivateKey: # 商户私钥
+  alipayPublicKey:  # 支付宝公钥
   notifyUrl: http://f78krr.natappfree.cc/pay/notify     # 支付宝需要访问我们，所以内网穿透启动后填写
   returnUrl: http://member.gulimalls.com/memberOrder.html # return时浏览器访问，所以可以通过zuul访问
   signType: RSA2
