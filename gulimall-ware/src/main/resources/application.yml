@@ -5,14 +5,14 @@ spring:
     name: gulimall-ware
   datasource:            # 配置数据源
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://119.91.214.57:3306/gulimall-wms?characterEncoding=utf-8&serverTimezone=GMT%2B8&useSSL=false
+    url: jdbc:mysql://localhost:3306/gulimall-wms?characterEncoding=utf-8&serverTimezone=GMT%2B8&useSSL=false
     username: root
     password: 123456
   jackson: # 返回前端的格式化时间
     date-format: yyyy-MM-dd HH:mm:ss
     time-zone: GMT+8
   rabbitmq:
-    host: 119.91.214.57 # host地址
+    host: 192.168.241.130 # host地址
     port: 5672  # 端口
     virtual-host: / # 虚拟主机，默认
     listener:
