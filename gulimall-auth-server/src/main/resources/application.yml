@@ -31,6 +31,6 @@ feign:
         connect-timeout: 10000
         read-timeout: 10000
 gitee:
-  client_id: 53ba31dbcee87f0a46666855d6ded2db85ffc25f71899e575ecd3c52e9e37120 #填写对应应用id
-  client_secret: fead9be781a21d6329687f3c737deb310ed4361c79bb8d844f9da5f34e768fe1  #用户密钥
+  client_id:  #填写对应应用id
+  client_secret:   #用户密钥
   redirect_uri: http://auth.gulimalls.com/success
